@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" type="text">
+    <style>
+        body{
+            background: rgb(0, 0, 0)
+        }
+      .center{
+        text-align: center;
+        color:yellowgreen;
+      }  
+      .container{
+        background: radial-gradient( rgb(0, 255, 234) , rgb(0, 37, 249));
+        margin: auto;
+        width: 16vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 10cm;
+        border-radius: 10%;
+        border: 5px red solid;
+      }
+      .button{
+        padding: 8px;
+        margin: 9px 2px;
+        border: 2px black solid;
+        border-radius: 50%;
+        cursor: pointer;
+        color:black;
+        background: radial-gradient( rgb(0, 211, 0), black);
+      }
+      .button:hover {
+         background: linear-gradient(135deg,#ffffff, #000000);
+}
+      .input{
+        border: 2px solid black;
+        padding: 6px 5px;
+        background:radial-gradient( yellowgreen, rgb(75, 252, 75));
+      }
+      
+      @media (max-width: 810px){
+          .input{
+          padding: 7px 9px;
+          width: 125px;
+        }
+        .container{
+         width:30%;
+        }
+        .button{
+            padding: 12px;
+            margin: 5px 6px;
+        }
+       
+    }
+    
+    @media (max-width:995px ){
+        .input{
+            padding: 5px 3px;
+            width: 105px;
+        }
+        .container{
+            width:40%;
+        }
+        .button{
+            padding: 7px;
+            margin: 9px 2px;
+        }
+    }
+
+      
+      
+
+    </style>
+</head>
+<h1 class="center">Welcome to Calculator!</h1>
+<body>
+    <div class="container" >
+        <div class="row">
+            <input type="text" class="input"></input>
+        </div>
+        <div class="row">
+           
+                <button class="button">C</button>
+                <button class="button">$</button>
+                <button class="button">^</button>
+                <button class="button">-</button>
+           
+        <div class="row">
+        
+                <button class="button">7</button>
+                <button class="button">8</button>
+                <button class="button">9</button>
+                <button class="button">*</button>
+               
+        <div class="row">
+                <button class="button">4</button>
+                <button class="button">5</button>
+                <button class="button">6</button>
+                <button class="button">/</button>
+           
+        <div class="row">
+            
+                <button class="button">1</button>
+                <button class="button">2</button>
+                <button class="button">3</button>
+                <button class="button">+</button>
+           
+        <div class="row">
+            
+                <button class="button">0</button>
+                <button class="button">.</button>
+                <button class="button">%</button>
+                <button class="button">=</button>
+            
+           
+
+        </div>
+    </div>
+    <script>
+        let string=""
+        let buttons= document.querySelectorAll('.button');
+        Array.from(buttons).forEach((button)=>{
+            button.addEventListener ('click', (e)=>{
+                if(e.target.innerHTML == "="){
+                    string = eval(string)
+                    document.querySelector('input').value = string
+                }
+                else if(e.target.innerHTML == "C"){
+                    string = ""
+                    document.querySelector('input').value = string
+                }
+                else if(e.target.innerHTML == "$" || e.target.innerHTML == "^" ){
+                    string = ""
+                    document.querySelector('input').value = string
+                }
+                else{
+                console.log(e.target)
+                string = string + e.target.innerHTML;
+                document.querySelector('input').value = string
+                }
+            })
+        })
+    </script>
+</body>
+</html>
